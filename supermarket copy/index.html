@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+            
+        <meta charset="UTF-8"/>
+        <meta name= "viewport"
+        content="width=device-width, initial-scale=1.0"
+        />
+        <meta http-equiv="X-UA-Compatible"
+        content="ie=edge"/>
+<title>HOME</title>
+<style>
+  body {
+    background-image:url('background/grass 2.GIF') ;
+    background-size: 1710px 1000px;
+    background-position: top 0px;
+  }
+  p.inset {border-style: inset;}
+  #grad1 {
+  height: 650px;
+  width: 380px;
+  position: fixed;top: 20px;right: 480px;
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: radial-gradient(rgb(255, 113, 113) 5%, rgb(184, 184, 184) 25%,rgb(214, 181, 181) 5%, rgb(255, 215, 215) 60%,rgb(184, 184, 184) 25%,red 5%, rgb(184, 184, 184) 25%);
+  border: 10px inset rgb(255, 208, 208); /* Standard syntax (must be last) */
+} 
+
+#grad2 {
+  height: 200px;
+  width: 400px;
+  position: fixed; bottom: 60px; left: 300px;
+  background-image: url('background/spppace.png');
+  box-shadow: 0 0 4px 5px rgb(166, 233, 255) ;
+}
+
+
+
+img:hover {
+  box-shadow: 0 0 4px 5px rgb(166, 233, 255);
+}
+  
+h1:hover{
+  text-shadow: 5px 5px 5px #ff0000;
+}
+    h1 {
+            color: #c5deff;
+              text-shadow: 0 0 5px #FF0000;
+              font-size: 15px;
+              font-family: Georgia, 'Times New Roman', Times, serif
+            }
+    
+    a { color: #2f4fff;
+    background-color: #ffffff;
+    text-shadow: rgb(255, 0, 0) 0 0 6px;
+    font-size: 22px;
+
+    }
+
+    img {
+        position: fixed;
+        box-shadow: 10px 10px 5 px aliceblue;
+    }
+    iframe {
+      position: fixed;
+    }
+    </style>
+<!-- sparkly cursor -->
+<script type="text/javascript">
+  // <![CDATA[
+  var colour="#FFFFFF";
+  var sparkles=120;
+  
+  /****************************
+  *  Tinkerbell Magic Sparkle *
+  * (c) 2005 mf2fm web-design *
+  *  http://www.mf2fm.com/rv  *
+  * DON'T EDIT BELOW THIS BOX *
+  ****************************/
+  var x=ox=400;
+  var y=oy=300;
+  var swide=800;
+  var shigh=600;
+  var sleft=sdown=0;
+  var tiny=new Array();
+  var star=new Array();
+  var starv=new Array();
+  var starx=new Array();
+  var stary=new Array();
+  var tinyx=new Array();
+  var tinyy=new Array();
+  var tinyv=new Array();
+  
+  window.onload=function() { if (document.getElementById) {
+    var i, rats, rlef, rdow;
+    for (var i=0; i<sparkles; i++) {
+      var rats=createDiv(3, 3);
+      rats.style.visibility="hidden";
+      document.body.appendChild(tiny[i]=rats);
+      starv[i]=0;
+      tinyv[i]=0;
+      var rats=createDiv(5, 5);
+      rats.style.backgroundColor="transparent";
+      rats.style.visibility="hidden";
+      var rlef=createDiv(1, 5);
+      var rdow=createDiv(5, 1);
+      rats.appendChild(rlef);
+      rats.appendChild(rdow);
+      rlef.style.top="2px";
+      rlef.style.left="0px";
+      rdow.style.top="0px";
+      rdow.style.left="2px";
+      document.body.appendChild(star[i]=rats);
+    }
+    set_width();
+    sparkle();
+  }}
+  
+  function sparkle() {
+    var c;
+    if (x!=ox || y!=oy) {
+      ox=x;
+      oy=y;
+      for (c=0; c<sparkles; c++) if (!starv[c]) {
+        star[c].style.left=(starx[c]=x)+"px";
+        star[c].style.top=(stary[c]=y)+"px";
+        star[c].style.clip="rect(0px, 5px, 5px, 0px)";
+        star[c].style.visibility="visible";
+        starv[c]=50;
+        break;
+      }
+    }
+    for (c=0; c<sparkles; c++) {
+      if (starv[c]) update_star(c);
+      if (tinyv[c]) update_tiny(c);
+    }
+    setTimeout("sparkle()", 40);
+  }
+  
+  function update_star(i) {
+    if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+    if (starv[i]) {
+      stary[i]+=1+Math.random()*3;
+      if (stary[i]<shigh+sdown) {
+        star[i].style.top=stary[i]+"px";
+        starx[i]+=(i%5-2)/5;
+        star[i].style.left=starx[i]+"px";
+      }
+      else {
+        star[i].style.visibility="hidden";
+        starv[i]=0;
+        return;
+      }
+    }
+    else {
+      tinyv[i]=50;
+      tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+      tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+      tiny[i].style.width="2px";
+      tiny[i].style.height="2px";
+      star[i].style.visibility="hidden";
+      tiny[i].style.visibility="visible"
+    }
+  }
+  
+  function update_tiny(i) {
+    if (--tinyv[i]==25) {
+      tiny[i].style.width="1px";
+      tiny[i].style.height="1px";
+    }
+    if (tinyv[i]) {
+      tinyy[i]+=1+Math.random()*3;
+      if (tinyy[i]<shigh+sdown) {
+        tiny[i].style.top=tinyy[i]+"px";
+        tinyx[i]+=(i%5-2)/5;
+        tiny[i].style.left=tinyx[i]+"px";
+      }
+      else {
+        tiny[i].style.visibility="hidden";
+        tinyv[i]=0;
+        return;
+      }
+    }
+    else tiny[i].style.visibility="hidden";
+  }
+  
+  document.onmousemove=mouse;
+  function mouse(e) {
+    set_scroll();
+    y=(e)?e.pageY:event.y+sdown;
+    x=(e)?e.pageX:event.x+sleft;
+  }
+  
+  function set_scroll() {
+    if (typeof(self.pageYOffset)=="number") {
+      sdown=self.pageYOffset;
+      sleft=self.pageXOffset;
+    }
+    else if (document.body.scrollTop || document.body.scrollLeft) {
+      sdown=document.body.scrollTop;
+      sleft=document.body.scrollLeft;
+    }
+    else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+      sleft=document.documentElement.scrollLeft;
+    sdown=document.documentElement.scrollTop;
+    }
+    else {
+      sdown=0;
+      sleft=0;
+    }
+  }
+  
+  window.onresize=set_width;
+  function set_width() {
+    if (typeof(self.innerWidth)=="number") {
+      swide=self.innerWidth;
+      shigh=self.innerHeight;
+    }
+    else if (document.documentElement && document.documentElement.clientWidth) {
+      swide=document.documentElement.clientWidth;
+      shigh=document.documentElement.clientHeight;
+    }
+    else if (document.body.clientWidth) {
+      swide=document.body.clientWidth;
+      shigh=document.body.clientHeight;
+    }
+  }
+  
+  function createDiv(height, width) {
+    var div=document.createElement("div");
+    div.style.position="absolute";
+    div.style.height=height+"px";
+    div.style.width=width+"px";
+    div.style.overflow="hidden";
+    div.style.backgroundColor=colour;
+    return (div);
+  }
+  // ]]>
+  </script>
+  <!-- curose ends here -->
+        
+     </head>
+    <body>
+      <!-- Gradient 1 -->
+      <div id="grad1"></div>
+      <!-- GRADIENT 2 -->
+      <div id="grad2"></div>
+
+      <!-- GRADIENT 2 -->
+     
+
+      <!-- CSS -->
+        <link rel="stylesheet" href="css/index.css">
+        <!-- pages -->
+        <br>
+        <br>
+<!-- welcome gifs -->
+<iframe src="https://giphy.com/embed/OIpwF0xm94nMk" width="450" height="120" frameBorder="0" class="giphy-embed" allowFullScreen
+style="position: fixed; left: 220px; top: 20px;"></iframe>
+<!-- welcome 1 ends here -->
+<iframe src="https://giphy.com/embed/PuX3MIMP89YGc" width="70" height="100" frameBorder="0" class="giphy-embed" allowFullScreen
+style="position: fixed; right: 380px; top: 10px;"></iframe>
+
+
+     <!-- IMAGES -->
+
+<div class="portal">
+
+</div>
+
+<!-- washing machine -->
+
+<img src="GIFS/washing.machine.GIF"
+width="300px"
+height="450px"
+style="position: fixed; left: 420px; top: 150px;"
+>
+
+     <iframe src="https://giphy.com/embed/3ohhwBrZCQBtmVA91K" width="1000" height="100" frameBorder="0" class="giphy-embed" allowFullScreen
+     style="position: fixed; bottom: 30px;"></iframe>
+<!-- MATH STARTS HERE -->
+  <img src="space/surface 1.png"
+  width="80px"
+  height="80px"
+  style="position: fixed; bottom: 100px; left:460px">
+
+  <img src="space/wormhole 1.gif"
+  width="60px"
+  height="90px"
+  style="position: fixed; bottom: 100px; left: 320px;"
+  style="border: 2px, solid #FF0000;">
+<!-- ICONS START HERE -->
+<!-- PINEAPPLE BUN -->
+  <a href="more copy.html"> <img src="images/pineapple bun.png" alt="bun"
+    width="70px"
+    height="50px"
+    style="position: fixed; top: 100px; right: 500px;"></a>
+<!-- EARTH -->
+    <a href="earth.html"> <img
+    src="icons/earth.png"
+    width="50px"
+    height="50px"
+    style="position: fixed; top: 210px; right: 600px;"></a>
+
+    <!-- QUARANTINE POLE -->
+
+    <a href="quarantine.html"><img src="icons/tranmission tower.png"
+      width="60"
+      height="100"
+      style="position:fixed; left: 900px; top: 200px;"></a>
+
+<!-- WAX APPLE -->
+<a href="audio.test.html"><img src="icons/wax.apple.GIF"
+  width="100px"
+  height="60px"
+  style="position: fixed;right: 600px;top: 380px;"></a>
+  <!-- BAKERY -->
+<a href="bakery.html"><img src="bakery/RED TREAYAY.png"
+  height="80"
+  width="120"
+  style="position:fixed; right: 680px; top: 480px;"></a>
+
+
+<a href="shrine.html"><img src="images/waterfall22.gif"
+height="60"
+width="100"
+style="position: fixed; right: 520px;
+bottom: 230px;"></a>
+
+
+
+
+  <h1></h1>
+<!-- images end here -->
+</div>
+
+
+
+
+<a href="hhouse.html"><img src="images/HHHOUSE copy.png" alt="game 1" width="80px" height="80px" style="position: fixed; top: 60px; left: 1000px;"></a>
+
+<a href="index.html">welcome to YAQPORTAL!! 
+  <br>
+  <br>
+  the contents on this page are 
+  <br>
+  best viewed at 75% zoom
+  <br>
+  <br>
+   zoom cmd+ and - to adjust</a>
+
+<!-- pages end here -->
+
+    </body>
+
+    </html>

@@ -1,0 +1,22 @@
+
+.first {
+    position: fixed; top: 200px;
+    font-size: 20px;
+}
+
+
+    #loading {
+        -webkit-animation: rotation 8s infinite linear;
+        width: 200px;
+        height: 70px;
+        position: fixed; left: 1300px; top: 170px;
+}
+
+@-webkit-keyframes rotation {
+		from {
+				-webkit-transform: rotateZ(1, 1, 20deg);
+		}
+		to {
+				-webkit-transform: rotateZ(359deg);
+        }
+    }

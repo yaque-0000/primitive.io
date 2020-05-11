@@ -1,0 +1,25 @@
+.bakery {
+    position: fixed; right: 200px;
+}
+
+.nofrills {
+    position: fixed; top: 50px; left: 100px;
+}
+
+.love {
+    position: fixed; bottom: 550px; left: 100px;
+}
+
+.shrine {
+    position: fixed; bottom: 300px; right: 200px;
+}
+
+.body {
+    background-image: radial-gradient(red 5%, yellow 15%, green 60%);
+}
+
+.surface {
+    width: 100px;
+    height: 100px;
+}
+
